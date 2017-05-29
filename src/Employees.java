@@ -4,6 +4,11 @@
 public class Employees {
 
     @Override
+    public String toString() {
+        return fullName;
+    }
+
+    @Override
     public int hashCode() {
         //return super.hashCode();
 
@@ -11,12 +16,25 @@ public class Employees {
     int result = 1;
 
 
-    return result;
+    return result * var + this.id;
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+
+        //return super.equals(obj);
+
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Employees other = (Employees) obj;
+        if (this.id != other.getId())
+            return false;
+
+        return true;
     }
 
     private int id;
